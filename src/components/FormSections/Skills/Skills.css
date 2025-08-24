@@ -1,0 +1,36 @@
+.skills-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.section-subtitle {
+  display: block;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.skills-form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ant-form-item {
+  margin-bottom: 8px;
+}
+
+.skills-hint {
+  font-size: 13px;
+  margin-top: 0;
+  display: block;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}

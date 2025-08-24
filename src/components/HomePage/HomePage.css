@@ -1,0 +1,86 @@
+.home-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 80px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+.home-title {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+}
+
+.home-subtitle {
+  display: block;
+  text-align: center;
+  margin-bottom: 56px;
+  font-size: 18px;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.template-card {
+  background: #fafafa;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+}
+
+.template-content {
+  position: relative;
+  padding: 24px;
+  padding-bottom: 0;
+}
+
+.template-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.badge-text {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+}
+
+.template-footer {
+  padding: 20px 24px 24px 24px;
+  text-align: center;
+}
+
+.template-name {
+  margin: 0 0 16px 0;
+  font-size: 19px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.template-button {
+  width: 100%;
+  border-radius: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  border: none;
+  color: white;
+  height: 48px;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.2);
+  transition: all 0.3s ease;
+}

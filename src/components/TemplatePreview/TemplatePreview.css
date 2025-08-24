@@ -1,0 +1,477 @@
+.template-preview {
+  width: 100%;
+  max-width: 600px;
+  min-height: 800px;
+  max-height: 1000px;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.template-preview .ant-card-body {
+  padding: 0;
+}
+
+/* Modern Template */
+.modern-preview {
+  height: auto;
+  min-height: 800px;
+}
+
+.modern-header {
+  background: #cfe3f0;
+  height: 56px;
+}
+
+.modern-name-section {
+  padding: 16px 24px 8px 24px;
+}
+
+.modern-name {
+  font-weight: 800;
+  font-size: 26px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modern-contact-bar {
+  background: #2d2d2d;
+  color: #fff;
+  padding: 10px 24px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.modern-content {
+  padding: 16px 24px 24px 24px;
+  background: #fff;
+}
+
+.modern-section {
+  margin-bottom: 18px;
+}
+
+.modern-section-title {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.modern-section-content {
+  margin-top: 8px;
+  color: #444;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.modern-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.modern-skill {
+  color: #333;
+}
+
+.modern-experiences {
+  margin-top: 8px;
+}
+
+.modern-experience {
+  margin-bottom: 12px;
+}
+
+.modern-exp-dates {
+  color: #7c7c7c;
+  font-size: 12px;
+}
+
+.modern-exp-details {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.modern-job-title {
+  font-style: italic;
+}
+
+.modern-company {
+  color: #555;
+}
+
+.modern-exp-description {
+  margin-top: 4px;
+  color: #444;
+}
+
+.modern-educations {
+  margin-top: 8px;
+}
+
+.modern-education {
+  margin-bottom: 12px;
+}
+
+.modern-edu-dates {
+  color: #7c7c7c;
+  font-size: 12px;
+}
+
+.modern-edu-details {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.modern-degree {
+  font-weight: 600;
+}
+
+.modern-school {
+  color: #555;
+}
+
+/* Sidebar Template */
+.sidebar-preview {
+  /* Base styles inherited */
+}
+
+.sidebar-layout {
+  display: flex;
+  min-height: 720px;
+}
+
+.sidebar-left {
+  width: 190px;
+  padding: 16px;
+}
+
+.sidebar-name {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.sidebar-job-title {
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.sidebar-section-title {
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.sidebar-section-title:first-of-type {
+  margin-top: 8px;
+}
+
+.sidebar-contact {
+  font-size: 12px;
+  color: #333;
+}
+
+.sidebar-contact div {
+  margin-bottom: 2px;
+}
+
+.sidebar-skills {
+  padding-left: 16px;
+  margin: 6px 0;
+  color: #333;
+}
+
+.sidebar-right {
+  flex: 1;
+  padding: 16px 24px;
+}
+
+.sidebar-section {
+  margin-bottom: 16px;
+}
+
+.sidebar-section-content {
+  margin-top: 6px;
+  color: #444;
+  white-space: pre-line;
+}
+
+.sidebar-experience {
+  margin-top: 8px;
+}
+
+.sidebar-exp-header {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 12px;
+}
+
+.sidebar-exp-header .sidebar-job-title {
+  font-weight: 600;
+}
+
+.sidebar-dates {
+  color: #666;
+  font-size: 12px;
+}
+
+.sidebar-exp-description {
+  margin-top: 4px;
+}
+
+.sidebar-education {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar-degree {
+  font-weight: 600;
+}
+
+.sidebar-school {
+  color: #555;
+}
+
+/* Elegant Template */
+.elegant-preview {
+  padding: 24px;
+}
+
+.elegant-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.elegant-name {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.elegant-job-title {
+  margin-top: 2px;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.elegant-contact {
+  margin-top: 8px;
+  color: #666;
+}
+
+.elegant-divider {
+  height: 2px;
+  margin: 16px 0;
+}
+
+.elegant-section {
+  margin-bottom: 12px;
+}
+
+.elegant-section-title {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.elegant-section-content {
+  margin-top: 6px;
+  white-space: pre-line;
+  color: #444;
+}
+
+.elegant-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.elegant-skill-tag {
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.elegant-experience {
+  margin-top: 8px;
+}
+
+.elegant-exp-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.elegant-job-title {
+  font-weight: 600;
+}
+
+.elegant-company {
+  color: #555;
+}
+
+.elegant-dates {
+  font-weight: 500;
+}
+
+.elegant-exp-description {
+  margin-top: 4px;
+}
+
+.elegant-education {
+  margin-top: 8px;
+}
+
+.elegant-degree {
+  font-weight: 600;
+}
+
+.elegant-school {
+  color: #555;
+}
+
+/* Classic Template */
+.classic-preview {
+  padding: 32px 32px 24px 32px;
+  position: relative;
+  overflow: visible;
+  height: auto;
+  min-height: 800px;
+  page-break-inside: avoid;
+  box-sizing: border-box;
+}
+
+.classic-avatar {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-icon {
+  font-size: 40px;
+  color: #bdbdbd;
+}
+
+.classic-header {
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  padding-left: 96px;
+}
+
+.classic-name {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.classic-job-title {
+  font-weight: 500;
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.classic-contact {
+  color: #555;
+  font-size: 15px;
+}
+
+.classic-section {
+  margin-bottom: 18px;
+}
+
+.classic-section-title {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.classic-experience {
+  margin-bottom: 12px;
+}
+
+.classic-exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.classic-exp-header .classic-job-title {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.classic-company {
+  font-weight: 500;
+}
+
+.classic-dates {
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.classic-exp-description {
+  margin-top: 4px;
+  color: #222;
+  font-size: 15px;
+}
+
+.classic-section-content {
+  color: #222;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.classic-education {
+  margin-bottom: 12px;
+}
+
+.classic-edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.classic-degree {
+  font-weight: 600;
+  font-size: 17px;
+  color: #222;
+}
+
+.classic-school {
+  font-weight: 500;
+  color: #555;
+  font-size: 15px;
+}
+
+.classic-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.classic-skill {
+  color: #222;
+  font-size: 15px;
+}

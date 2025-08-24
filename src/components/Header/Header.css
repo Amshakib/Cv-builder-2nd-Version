@@ -1,0 +1,39 @@
+.app-header {
+  background: #fff;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-avatar {
+  background-color: #52c41a;
+  margin-right: 12px;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.user-avatar {
+  background-color: #f0f0f0;
+}

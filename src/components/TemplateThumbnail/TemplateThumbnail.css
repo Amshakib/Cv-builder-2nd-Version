@@ -1,0 +1,342 @@
+.thumbnail {
+  height: 280px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0;
+}
+
+/* Modern Template */
+.modern-thumbnail {
+  /* Inherits base thumbnail styles */
+}
+
+.modern-header {
+  height: 32px;
+  background: #e3f2fd;
+}
+
+.modern-name-section {
+  padding: 8px 12px 6px 12px;
+}
+
+.modern-name {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.modern-contact-bar {
+  height: 18px;
+  background: #424242;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  gap: 8px;
+}
+
+.contact-dot {
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.modern-content {
+  padding: 8px 12px;
+}
+
+.section-title {
+  margin-top: 8px;
+  font-size: 8px;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Sidebar Template */
+.sidebar-thumbnail {
+  display: flex;
+}
+
+.sidebar-left {
+  width: 80px;
+  background: #f8f9fa;
+  border-right: 2px solid #6b7280;
+  padding: 8px;
+}
+
+.sidebar-name {
+  font-size: 10px;
+  font-weight: bold;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.sidebar-job {
+  font-size: 6px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.sidebar-section-title {
+  font-size: 6px;
+  font-weight: bold;
+  color: #6b7280;
+  margin-bottom: 2px;
+  margin-top: 8px;
+}
+
+.sidebar-section-title:first-of-type {
+  margin-top: 0;
+}
+
+.sidebar-right {
+  flex: 1;
+  padding: 8px;
+}
+
+/* Elegant Template */
+.elegant-thumbnail {
+  border: 1px solid #6b7280;
+  padding: 12px;
+}
+
+.elegant-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.elegant-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.elegant-job {
+  font-size: 8px;
+  color: #666;
+}
+
+.elegant-contact {
+  font-size: 6px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.elegant-divider {
+  height: 1px;
+  background: #6b7280;
+  margin: 8px 0;
+}
+
+.elegant-content {
+  /* Content styles */
+}
+
+.elegant-section-title {
+  font-size: 6px;
+  font-weight: bold;
+  color: #6b7280;
+  margin-bottom: 3px;
+  margin-top: 8px;
+}
+
+.elegant-section-title:first-child {
+  margin-top: 0;
+}
+
+.elegant-skills {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.skill-tag {
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  padding: 1px 4px;
+  font-size: 5px;
+  color: #6b7280;
+}
+
+/* Minimal Template */
+.minimal-thumbnail {
+  padding: 12px;
+}
+
+.minimal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.minimal-info {
+  /* Info container */
+}
+
+.minimal-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+.minimal-job {
+  font-size: 8px;
+  color: #666;
+}
+
+.minimal-contact {
+  font-size: 6px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.minimal-content {
+  /* Content styles */
+}
+
+.minimal-section-title {
+  font-size: 8px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.minimal-section-title:first-of-type {
+  margin-top: 8px;
+}
+
+/* Vibrant Template */
+.vibrant-thumbnail {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.vibrant-content {
+  padding: 12px;
+}
+
+.vibrant-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.vibrant-avatar {
+  width: 24px;
+  height: 24px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+}
+
+.vibrant-info {
+  /* Info container */
+}
+
+.vibrant-name {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.vibrant-job {
+  font-size: 8px;
+  opacity: 0.9;
+}
+
+.vibrant-contact {
+  font-size: 6px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.vibrant-divider {
+  background: rgba(255,255,255,0.2);
+  height: 1px;
+  margin: 8px 0;
+}
+
+.vibrant-section-title {
+  font-size: 6px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.vibrant-line {
+  height: 2px;
+  border-radius: 1px;
+  margin-bottom: 2px;
+}
+
+.vibrant-line.full {
+  background: rgba(255,255,255,0.6);
+  width: 100%;
+}
+
+.vibrant-line.partial {
+  background: rgba(255,255,255,0.6);
+  width: 85%;
+  margin-bottom: 6px;
+}
+
+.vibrant-line.large {
+  background: rgba(255,255,255,0.6);
+  width: 90%;
+}
+
+.vibrant-line.medium {
+  background: rgba(255,255,255,0.6);
+  width: 75%;
+}
+
+/* Classic Template */
+.classic-thumbnail {
+  padding: 12px;
+}
+
+.classic-header {
+  text-align: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #333;
+}
+
+.classic-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.classic-job {
+  font-size: 8px;
+  color: #666;
+}
+
+.classic-contact {
+  font-size: 6px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.classic-content {
+  /* Content styles */
+}
+
+.classic-section-title {
+  font-size: 8px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  margin-top: 12px;
+}
+
+.classic-section-title:first-child {
+  margin-top: 0;
+}

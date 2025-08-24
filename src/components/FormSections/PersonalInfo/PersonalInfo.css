@@ -1,0 +1,67 @@
+.personal-info-form {
+  padding: 0;
+}
+
+.personal-info-form .ant-form-item {
+  margin-bottom: 24px;
+}
+
+.personal-info-form .ant-input,
+.personal-info-form .ant-input:focus,
+.personal-info-form .ant-input-focused {
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.personal-info-form .ant-input:hover {
+  border-color: #40a9ff;
+}
+
+.personal-info-form .ant-input:focus,
+.personal-info-form .ant-input-focused {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.personal-info-form .ant-form-item-label > label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 15px;
+}
+
+.avatar-upload {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 6px;
+  border: 1px dashed #d9d9d9;
+}
+
+.avatar-upload:hover {
+  border-color: #40a9ff;
+}
+
+.avatar-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: block;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.remove-avatar-btn {
+  margin-left: 16px;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
