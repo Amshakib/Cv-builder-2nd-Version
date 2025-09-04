@@ -31,10 +31,11 @@ const PersonalInfo = ({
 
   return (
     <>
-      <Title level={3}>Personal info</Title>
+      {/* <Title level={3}>Personal info</Title>
       <Text type="secondary">Tell us about yourself.</Text>
       <Form
         form={form}
+        
         layout="vertical"
         className="personal-info-form"
         initialValues={personalInfo}
@@ -61,7 +62,9 @@ const PersonalInfo = ({
           )}
         </Form.Item>
         <Row gutter={16}>
+         
           <Col span={12}>
+          
             <Form.Item label="First name" name="firstName">
               <Input />
             </Form.Item>
@@ -97,7 +100,74 @@ const PersonalInfo = ({
           <Button onClick={onPrev} disabled={isFirstSection}>Previous step</Button>
           <Button type="primary" onClick={onNext} disabled={isLastSection}>Next step</Button>
         </div>
-      </Form>
+      </Form> */}
+
+<Title level={3}>Personal info</Title>
+                <Text type="secondary">Tell us about yourself.</Text>
+                <Form
+                  form={form}
+                  layout="vertical"
+                  style={{ marginTop: 24 }}
+                  initialValues={personalInfo}
+                  onValuesChange={(changedValues, allValues) => setPersonalInfo(allValues)}
+                >
+                  <Form.Item label="Your photo">
+                    <Upload
+                      showUploadList={false}
+                      beforeUpload={() => false}
+                       accept="image/*"
+                       maxCount={1}
+                      onChange={handleUpload}
+                      onRemove={() => setAvatarUrl(null)}
+                    >
+                      <Button icon={<UploadOutlined />}>Choose File</Button>
+                    </Upload>
+                    {avatarUrl && (
+                      <div style={{ marginTop: 12 }}> 
+                        <Avatar src={avatarUrl} size={64} />
+                        <Button style={{ marginLeft: 16 }} onClick={() => setAvatarUrl(null)}>Remove</Button>
+                      </div>
+                    )}
+                  </Form.Item>
+                  <Row gutter={16}>
+                    <Col span={12}>
+                      <Form.Item label="First name" name="firstName">
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={12}>
+                      <Form.Item label="Last Name" name="lastName">
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                  </Row>
+                  <Form.Item label="Job title" name="jobTitle">
+                    <Input />
+                  </Form.Item>
+                  <Row gutter={16}>
+                    <Col span={12}>
+                      <Form.Item label="City" name="city">
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={12}>
+                      <Form.Item label="Country" name="country">
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                  </Row>
+                  <Form.Item label="Phone" name="phone">
+                    <Input />
+                  </Form.Item>
+                  <Form.Item label="Email" name="email">
+                    <Input />
+                  </Form.Item>
+                  <div className="form-navigation">
+          <Button onClick={onPrev} disabled={isFirstSection}>Previous step</Button>
+          <Button type="primary" onClick={onNext} disabled={isLastSection}>Next step</Button>
+        </div>
+                 
+                </Form>
     </>
   );
 };
