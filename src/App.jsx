@@ -15,7 +15,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('personal');
   const [skills, setSkills] = useState('');
   const [summary, setSummary] = useState('');
-  const [currentColor, setCurrentColor] = useState('#389e3d');
+  const [currentColor, setCurrentColor] = useState('#666666');
   const previewRef = useRef(null);
   const [personalInfo, setPersonalInfo] = useState({
     firstName: '',
@@ -50,9 +50,10 @@ function App() {
     { id: 'classic', name: 'Classic' },
     { id: 'modern', name: 'Modern' },
     { id: 'sidebar', name: 'Sidebar' },
+    { id: 'academic', name: 'Academic' },
     { id: 'elegant', name: 'Elegant' },
     { id: 'minimal', name: 'Minimal' },
-    { id: 'vibrant', name: 'Vibrant' },
+    
   ];
 
   const handleColorChange = (color) => {

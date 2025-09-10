@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { toRichListHtml, formatMonthYear } from '../../utils/textFormatting';
+import { formatMonthYear } from '../../utils/textFormatting';
 import InlineEditor from '../InlineEditor/InlineEditor';
+import AcademicCV from '../Templates/AcademicCV/AcademicCV';
 import './TemplatePreview.css';
 
 const TemplatePreview = ({ 
@@ -412,13 +413,45 @@ const TemplatePreview = ({
     </Card>
   );
 
-  switch (selectedTemplate) {
+  // Stub functions for templates that aren't implemented yet
+  const renderMinimalPreview = () => (
+    <div ref={previewRef} className="template-preview">
+      <p>Minimal template preview not implemented yet</p>
+    </div>
+  );
+
+  const renderVibrantPreview = () => (
+    <div ref={previewRef} className="template-preview">
+      <p>Vibrant template preview not implemented yet</p>
+    </div>
+  );
+
+  // Main render function that selects the appropriate template
+  switch(selectedTemplate) {
     case 'modern':
       return renderModernPreview();
     case 'sidebar':
       return renderSidebarPreview();
     case 'elegant':
       return renderElegantPreview();
+    case 'minimal':
+      return renderMinimalPreview();
+    case 'vibrant':
+      return renderVibrantPreview();
+    case 'academic':
+      return (
+        <div ref={previewRef} className="template-preview">
+          <AcademicCV 
+            personalInfo={personalInfo}
+            workExperiences={workExperiences}
+            educations={educations}
+            skills={skills}
+            summary={summary}
+            currentColor={currentColor}
+          />
+        </div>
+      );
+    case 'classic':
     default:
       return renderClassicPreview();
   }
