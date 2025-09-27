@@ -1,7 +1,9 @@
 import React from 'react';
 import { Card } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { toRichListHtml, formatMonthYear } from '../../utils/textFormatting';
+import { formatMonthYear } from '../../utils/textFormatting';
+import InlineEditor from '../InlineEditor/InlineEditor';
+import AcademicCV from '../Templates/AcademicCV/AcademicCV';
 import './TemplatePreview.css';
 
 const TemplatePreview = ({ 
@@ -13,7 +15,9 @@ const TemplatePreview = ({
   summary, 
   avatarUrl, 
   currentColor,
-  previewRef 
+  previewRef,
+  setSummary,
+  setWorkExperiences
 }) => {
   const validWorkExperiences = workExperiences.filter(exp => (
     exp.jobTitle?.trim() || exp.company?.trim() || exp.startDate?.trim() || exp.endDate?.trim() || exp.description?.trim()
@@ -38,10 +42,15 @@ const TemplatePreview = ({
         <div>{[personalInfo.city, personalInfo.country].filter(Boolean).join(' ') || 'City Country'}</div>
       </div>
       <div className="modern-content">
-        {summary?.trim() && (
+        {(summary?.trim() || setSummary) && (
           <div className="modern-section">
             <div className="modern-section-title">Summary</div>
-            <div className="modern-section-content">{summary}</div>
+            <InlineEditor
+              content={summary}
+              onSave={setSummary}
+              placeholder="Add a professional summary..."
+              className="modern-section-content"
+            />
           </div>
         )}
         {skillsList.length > 0 && (
@@ -73,9 +82,17 @@ const TemplatePreview = ({
                       <span className="modern-company">, {exp.company}</span>
                     )}
                   </div>
-                  {exp.description?.trim() && (
-                    <div className="modern-exp-description" dangerouslySetInnerHTML={{ __html: toRichListHtml(exp.description) }} />
-                  )}
+                  <InlineEditor
+                    content={exp.description}
+                    onSave={(newDescription) => {
+                      const updatedExperiences = workExperiences.map((experience, index) => 
+                        index === idx ? { ...experience, description: newDescription } : experience
+                      );
+                      setWorkExperiences(updatedExperiences);
+                    }}
+                    placeholder="Add job description..."
+                    className="modern-exp-description"
+                  />
                 </div>
               ))}
             </div>
@@ -134,10 +151,15 @@ const TemplatePreview = ({
           )}
         </div>
         <div className="sidebar-right">
-          {summary?.trim() && (
+          {(summary?.trim() || setSummary) && (
             <div className="sidebar-section">
               <div className="sidebar-section-title" style={{ color: currentColor }}>Summary</div>
-              <div className="sidebar-section-content">{summary}</div>
+              <InlineEditor
+                content={summary}
+                onSave={setSummary}
+                placeholder="Add a professional summary..."
+                className="sidebar-section-content"
+              />
             </div>
           )}
           {validWorkExperiences.length > 0 && (
@@ -154,9 +176,17 @@ const TemplatePreview = ({
                       <div className="sidebar-dates">{formatMonthYear(exp.startDate)} - {exp.endDate ? formatMonthYear(exp.endDate) : 'Present'}</div>
                     )}
                   </div>
-                  {exp.description?.trim() && (
-                    <div className="sidebar-exp-description" dangerouslySetInnerHTML={{ __html: toRichListHtml(exp.description) }} />
-                  )}
+                  <InlineEditor
+                    content={exp.description}
+                    onSave={(newDescription) => {
+                      const updatedExperiences = workExperiences.map((experience, index) => 
+                        index === idx ? { ...experience, description: newDescription } : experience
+                      );
+                      setWorkExperiences(updatedExperiences);
+                    }}
+                    placeholder="Add job description..."
+                    className="sidebar-exp-description"
+                  />
                 </div>
               ))}
             </div>
@@ -201,10 +231,15 @@ const TemplatePreview = ({
         </div>
       </div>
       <div className="elegant-divider" style={{ background: currentColor }} />
-      {summary?.trim() && (
+      {(summary?.trim() || setSummary) && (
         <div className="elegant-section">
           <div className="elegant-section-title" style={{ color: currentColor }}>Summary</div>
-          <div className="elegant-section-content">{summary}</div>
+          <InlineEditor
+            content={summary}
+            onSave={setSummary}
+            placeholder="Add a professional summary..."
+            className="elegant-section-content"
+          />
         </div>
       )}
       {skillsList.length > 0 && (
@@ -233,9 +268,17 @@ const TemplatePreview = ({
                   </div>
                 )}
               </div>
-              {exp.description?.trim() && (
-                <div className="elegant-exp-description" dangerouslySetInnerHTML={{ __html: toRichListHtml(exp.description) }} />
-              )}
+              <InlineEditor
+                content={exp.description}
+                onSave={(newDescription) => {
+                  const updatedExperiences = workExperiences.map((experience, index) => 
+                    index === idx ? { ...experience, description: newDescription } : experience
+                  );
+                  setWorkExperiences(updatedExperiences);
+                }}
+                placeholder="Add job description..."
+                className="elegant-exp-description"
+              />
             </div>
           ))}
         </div>
@@ -286,10 +329,15 @@ const TemplatePreview = ({
         </div>
       </div>
 
-      {summary?.trim() && (
+      {(summary?.trim() || setSummary) && (
         <div className="classic-section">
           <div className="classic-section-title" style={{ color: currentColor }}>Professional Summary</div>
-          <div className="classic-section-content">{summary}</div>
+          <InlineEditor
+            content={summary}
+            onSave={setSummary}
+            placeholder="Add a professional summary..."
+            className="classic-section-content"
+          />
         </div>
       )}
 
@@ -313,9 +361,17 @@ const TemplatePreview = ({
                   </div>
                 )}
               </div>
-              {exp.description?.trim() && (
-                <div className="classic-exp-description" dangerouslySetInnerHTML={{ __html: toRichListHtml(exp.description) }} />
-              )}
+              <InlineEditor
+                content={exp.description}
+                onSave={(newDescription) => {
+                  const updatedExperiences = workExperiences.map((experience, index) => 
+                    index === idx ? { ...experience, description: newDescription } : experience
+                  );
+                  setWorkExperiences(updatedExperiences);
+                }}
+                placeholder="Add job description..."
+                className="classic-exp-description"
+              />
             </div>
           ))}
         </div>
@@ -357,13 +413,45 @@ const TemplatePreview = ({
     </Card>
   );
 
-  switch (selectedTemplate) {
+  // Stub functions for templates that aren't implemented yet
+  const renderMinimalPreview = () => (
+    <div ref={previewRef} className="template-preview">
+      <p>Minimal template preview not implemented yet</p>
+    </div>
+  );
+
+  const renderVibrantPreview = () => (
+    <div ref={previewRef} className="template-preview">
+      <p>Vibrant template preview not implemented yet</p>
+    </div>
+  );
+
+  // Main render function that selects the appropriate template
+  switch(selectedTemplate) {
     case 'modern':
       return renderModernPreview();
     case 'sidebar':
       return renderSidebarPreview();
     case 'elegant':
       return renderElegantPreview();
+    case 'minimal':
+      return renderMinimalPreview();
+    case 'vibrant':
+      return renderVibrantPreview();
+    case 'academic':
+      return (
+        <div ref={previewRef} className="template-preview">
+          <AcademicCV 
+            personalInfo={personalInfo}
+            workExperiences={workExperiences}
+            educations={educations}
+            skills={skills}
+            summary={summary}
+            currentColor={currentColor}
+          />
+        </div>
+      );
+    case 'classic':
     default:
       return renderClassicPreview();
   }

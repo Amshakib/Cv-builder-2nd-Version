@@ -229,6 +229,8 @@ const BuilderPage = ({
                   avatarUrl={avatarUrl}
                   currentColor={currentColor}
                   previewRef={previewRef}
+                  setSummary={setSummary}
+                  setWorkExperiences={setWorkExperiences}
                 />
               </div>
             </div>
