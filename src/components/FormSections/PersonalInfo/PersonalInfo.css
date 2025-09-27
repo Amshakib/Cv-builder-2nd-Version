@@ -23,6 +23,7 @@
   transition: all 0.2s ease;
 }
 
+
 .personal-info-form .ant-input:hover {
   border-color: #40a9ff;
 }
@@ -33,11 +34,11 @@
   box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.15);
 }
 
-.personal-info-form .ant-form-item-label > label {
+/* .personal-info-form .ant-form-item-label > label {
   font-weight: 600;
   color: #374151;
   font-size: 15px;
-}
+} */
 
 .avatar-upload {
   text-align: center;

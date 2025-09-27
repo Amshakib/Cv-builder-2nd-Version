@@ -1,5 +1,6 @@
-import React from 'react';
-import { Layout, Row, Col, Breadcrumb, Typography, Dropdown, Tooltip, Button, Menu } from 'antd';
+import React, { useState } from 'react';
+import { Layout, Row, Col, Breadcrumb, Typography, Dropdown, Tooltip, Button, Menu, Input, Modal, Form, Space } from 'antd';
+import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import PersonalInfo from '../FormSections/PersonalInfo/PersonalInfo';
 import WorkExperience from '../FormSections/WorkExperience/WorkExperience';
 import Education from '../FormSections/Education/Education';
@@ -36,7 +37,12 @@ const BuilderPage = ({
   handleColorChange,
   previewRef
 }) => {
-  const sectionOrder = ['personal', 'work', 'education', 'skills', 'summary'];
+  const [customSections, setCustomSections] = useState([]);
+  const [isAddSectionModalVisible, setIsAddSectionModalVisible] = useState(false);
+  const [newSectionName, setNewSectionName] = useState('');
+  const [sectionForm] = Form.useForm();
+
+  const sectionOrder = ['personal', 'work', 'education', 'skills', 'summary', ...customSections.map(s => s.id)];
   const currentIndex = sectionOrder.indexOf(activeSection);
   const isFirstSection = currentIndex === 0;
   const isLastSection = currentIndex === sectionOrder.length - 1;
@@ -78,7 +84,141 @@ const BuilderPage = ({
     </Menu>
   );
 
+  const handleAddSection = () => {
+    const newSection = {
+      id: `custom-${Date.now()}`,
+      name: newSectionName,
+      items: [{
+        id: `item-${Date.now()}`,
+        title: '',
+        link: '',
+        description: ''
+      }]
+    };
+    setCustomSections([...customSections, newSection]);
+    setNewSectionName('');
+    setIsAddSectionModalVisible(false);
+  };
+
+  const handleDeleteSection = (sectionId) => {
+    setCustomSections(customSections.filter(section => section.id !== sectionId));
+    if (activeSection === sectionId) {
+      setActiveSection('personal');
+    }
+  };
+
+  const handleSectionItemChange = (sectionId, itemId, field, value) => {
+    setCustomSections(customSections.map(section => {
+      if (section.id !== sectionId) return section;
+      
+      const updatedItems = section.items.map(item => 
+        item.id === itemId ? { ...item, [field]: value } : item
+      );
+      
+      return { ...section, items: updatedItems };
+    }));
+  };
+
+  const addNewItem = (sectionId) => {
+    setCustomSections(customSections.map(section => {
+      if (section.id !== sectionId) return section;
+      
+      return {
+        ...section,
+        items: [
+          ...section.items,
+          {
+            id: `item-${Date.now()}`,
+            title: '',
+            link: '',
+            description: ''
+          }
+        ]
+      };
+    }));
+  };
+
+  const removeItem = (sectionId, itemId) => {
+    setCustomSections(customSections.map(section => {
+      if (section.id !== sectionId) return section;
+      
+      return {
+        ...section,
+        items: section.items.filter(item => item.id !== itemId)
+      };
+    }));
+  };
+
   const renderFormSection = () => {
+    const customSection = customSections.find(section => section.id === activeSection);
+    
+    if (customSection) {
+      return (
+        <div className="custom-section-form">
+          <div className="section-title">
+            <Title level={4}>{customSection.name}</Title>
+            <Button 
+              type="primary" 
+              onClick={() => addNewItem(customSection.id)}
+              icon={<PlusOutlined />}
+            >
+              Add Item
+            </Button>
+          </div>
+          
+          {customSection.items.map((item) => (
+            <Card key={item.id} className="custom-item-card" style={{ marginBottom: 16 }}>
+              <Form layout="vertical">
+                <Form.Item label="Title">
+                  <Input
+                    value={item.title}
+                    onChange={(e) => handleSectionItemChange(customSection.id, item.id, 'title', e.target.value)}
+                    placeholder="e.g., Project Name, Certificate Name"
+                  />
+                </Form.Item>
+                <Form.Item label="Link (optional)">
+                  <Input
+                    value={item.link}
+                    onChange={(e) => handleSectionItemChange(customSection.id, item.id, 'link', e.target.value)}
+                    placeholder="https://example.com"
+                    type="url"
+                  />
+                </Form.Item>
+                <Form.Item label="Description">
+                  <Input.TextArea
+                    rows={3}
+                    value={item.description}
+                    onChange={(e) => handleSectionItemChange(customSection.id, item.id, 'description', e.target.value)}
+                    placeholder="Enter details about this item..."
+                  />
+                </Form.Item>
+                {customSection.items.length > 1 && (
+                  <Button 
+                    type="text" 
+                    danger 
+                    icon={<DeleteOutlined />}
+                    onClick={() => removeItem(customSection.id, item.id)}
+                    style={{ marginTop: 8 }}
+                  >
+                    Remove Item
+                  </Button>
+                )}
+              </Form>
+            </Card>
+          ))}
+          
+          <div className="form-navigation" style={{ marginTop: 24 }}>
+            <Button onClick={goPrevSection} disabled={isFirstSection}>
+              Previous
+            </Button>
+            <Button type="primary" onClick={goNextSection} disabled={isLastSection}>
+              Next
+            </Button>
+          </div>
+        </div>
+      );
+    }
+
     switch (activeSection) {
       case 'personal':
         return (
@@ -90,8 +230,6 @@ const BuilderPage = ({
             setAvatarUrl={setAvatarUrl}
             onNext={goNextSection}
             onPrev={goPrevSection}
-            isFirstSection={isFirstSection}
-            isLastSection={isLastSection}
           />
         );
       case 'work':
@@ -190,6 +328,39 @@ const BuilderPage = ({
                 >
                   Add Summary
                 </Breadcrumb.Item>
+                {customSections.map((section) => (
+                  <Breadcrumb.Item 
+                    key={section.id}
+                    onClick={() => setActiveSection(section.id)}
+                    onMouseEnter={() => setHoveredNav(section.id)}
+                    onMouseLeave={() => setHoveredNav(null)}
+                    className={`breadcrumb-item ${(activeSection === section.id || hoveredNav === section.id) ? 'active' : ''}`}
+                  >
+                    <Space>
+                      {section.name}
+                      <Button 
+                        type="text" 
+                        size="small" 
+                        icon={<DeleteOutlined />} 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDeleteSection(section.id);
+                        }}
+                        danger
+                      />
+                    </Space>
+                  </Breadcrumb.Item>
+                ))}
+                <Breadcrumb.Item>
+                  <Button 
+                    type="dashed" 
+                    size="small" 
+                    icon={<PlusOutlined />} 
+                    onClick={() => setIsAddSectionModalVisible(true)}
+                  >
+                    Add Section
+                  </Button>
+                </Breadcrumb.Item>
               </Breadcrumb>
               {renderFormSection()}
             </div>
@@ -231,12 +402,52 @@ const BuilderPage = ({
                   previewRef={previewRef}
                   setSummary={setSummary}
                   setWorkExperiences={setWorkExperiences}
+                  customSections={customSections}
                 />
               </div>
             </div>
           </Col>
         </Row>
       </div>
+
+      <Modal
+        title="Add New Section"
+        open={isAddSectionModalVisible}
+        onOk={() => {
+          sectionForm
+            .validateFields()
+            .then(() => {
+              handleAddSection();
+              sectionForm.resetFields();
+            })
+            .catch((info) => {
+              console.log('Validate Failed:', info);
+            });
+        }}
+        onCancel={() => {
+          setIsAddSectionModalVisible(false);
+          sectionForm.resetFields();
+        }}
+        okText="Add Section"
+      >
+        <Form
+          form={sectionForm}
+          layout="vertical"
+          onFinish={handleAddSection}
+        >
+          <Form.Item
+            name="sectionName"
+            label="Section Name"
+            rules={[{ required: true, message: 'Please enter a section name' }]}
+          >
+            <Input 
+              placeholder="e.g., Projects, Certificates" 
+              value={newSectionName}
+              onChange={(e) => setNewSectionName(e.target.value)}
+            />
+          </Form.Item>
+        </Form>
+      </Modal>
     </Content>
   );
 };
