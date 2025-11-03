@@ -17,7 +17,8 @@ const TemplatePreview = ({
   currentColor,
   previewRef,
   setSummary,
-  setWorkExperiences
+  setWorkExperiences,
+  customSections = []
 }) => {
   const validWorkExperiences = workExperiences.filter(exp => (
     exp.jobTitle?.trim() || exp.company?.trim() || exp.startDate?.trim() || exp.endDate?.trim() || exp.description?.trim()
@@ -122,6 +123,34 @@ const TemplatePreview = ({
             </div>
           </div>
         )}
+        
+        {customSections.map((section) => (
+          section.items.length > 0 && (
+            <div key={section.id} className="modern-section">
+              <div className="modern-section-title">{section.name}</div>
+              <div className="modern-section-content">
+                {section.items.map((item, index) => (
+                  <div key={item.id} className="custom-item" style={{ marginBottom: index < section.items.length - 1 ? '16px' : 0 }}>
+                    <div className="custom-item-header">
+                      {item.link ? (
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="custom-item-title">
+                          {item.title || 'Untitled Item'}
+                        </a>
+                      ) : (
+                        <div className="custom-item-title">{item.title || 'Untitled Item'}</div>
+                      )}
+                    </div>
+                    {item.description && (
+                      <div className="custom-item-description">
+                        {item.description}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        ))}
       </div>
     </Card>
   );
